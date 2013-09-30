@@ -8,6 +8,7 @@ images_dir = "../assets/images"
 javascripts_dir = "../assets/scripts"
 
 #sass_options = { :debug_info => true, :sourcemap => true}
+require "breakpoint"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

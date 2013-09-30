@@ -3,3 +3,8 @@
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
  }
 html { font-size: 100%; }
+
+// VARIABLES
+$breakpoint-one: 640px, 'no-query' true;
+$breakpoint-two: 960px, 'no-query' true; // display this breakpoint in IE8
+$breakpoint-three: 1280px;
