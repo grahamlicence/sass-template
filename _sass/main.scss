@@ -1,6 +1,15 @@
 
 @import "vendor/normalise";
 
-@import "modules/mixins";
-@import "modules/typography";
-@import "modules/all";
+@import "framework/mixins";
+@import "framework/all";
+@import "framework/fonts";
+@import "framework/typography";
+@import "framework/grid";
+@import "framework/layout";
+
+@import "modules/buttons";
+
+@import "section/header";
+@import "section/navigation";
+@import "section/footer";

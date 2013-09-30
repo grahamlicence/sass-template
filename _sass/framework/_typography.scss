@@ -1,0 +1,6 @@
+h1 {
+	@include rem('font-size',18px);
+}
+p {
+	@include rem('font-size',12px);
+}
