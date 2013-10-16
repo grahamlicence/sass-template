@@ -22,7 +22,12 @@ module.exports = function(grunt) {
         }
       },
       compass: {
-          dist: {
+          clean: {
+              options: {
+                  clean: true
+              }
+          },
+          dev: {
             options: {
               require: [
                   'breakpoint'
@@ -33,36 +38,33 @@ module.exports = function(grunt) {
               javascriptsDir: 'build/assets/scripts',
               outputStyle: 'expanded',
               relativeAssets: true,
-              force: true
-            }
-          },
-          dev: {
-            clean: {
-                options: {
-                    clean: true
-                }
-            },
-            options: {
-              require: [
-                  'breakpoint'
-              ],
-              config: 'src/sass/config.rb',
-              // basePath: 'build/assets/styles',
               sassDir: 'src/sass',
-              cssDir: 'build/assets/styles'
+              cssDir: 'build/assets/styles',
+              environment: 'development'
             }
           }
+      },
+      cssmin: {
+        minify: {
+          expand: true,
+          cwd: 'build/assets/styles/',
+          src: ['*.css', '!*.min.css'],
+          dest: 'build/assets/styles',
+          ext: '.min.css'
+        }
       },
       watch: {
         css: {
           files: ['**/*.scss'],
-          tasks: ['compass:dev']
+          tasks: ['compass:dev', 'cssmin']
         }
       }
   });
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  //Install: npm install grunt-contrib-cssmin --save-dev
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.registerTask('default',['watch']);
 
 };
