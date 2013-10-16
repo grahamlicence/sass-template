@@ -2,10 +2,10 @@
 
 # Set this to the root of your project when deployed:
 http_path = ""
-css_dir = "../../deploy/assets/styles"
+css_dir = "../../build/assets/styles"
 sass_dir = ""
-images_dir = "../../deploy/assets/images"
-javascripts_dir = "../../deploy/assets/scripts"
+images_dir = "../../build/assets/images"
+javascripts_dir = "../../build/assets/scripts"
 
 #sass_options = { :debug_info => true, :sourcemap => true}
 require "breakpoint"
