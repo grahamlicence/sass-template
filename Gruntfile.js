@@ -22,11 +22,6 @@ module.exports = function(grunt) {
         }
       },
       compass: {
-          clean: {
-              options: {
-                  clean: true
-              }
-          },
           dev: {
             options: {
               require: [
@@ -38,13 +33,14 @@ module.exports = function(grunt) {
               javascriptsDir: 'build/assets/scripts',
               outputStyle: 'expanded',
               relativeAssets: true,
-              sassDir: 'src/sass',
-              cssDir: 'build/assets/styles',
               environment: 'development'
             }
           }
       },
       cssmin: {
+        options: {
+          banner: '/* Sass template <%= pkg.version %> */'
+        },
         minify: {
           expand: true,
           cwd: 'build/assets/styles/',
