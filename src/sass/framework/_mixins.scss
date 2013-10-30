@@ -55,3 +55,20 @@ $baseline-px: 16px;
     #{$property}: $rem-values; 
   } 
 }
+
+
+// ICONS
+@mixin icon-font($font) {
+  font-family: 'icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  content: $font;
+
+  // Better Font Rendering =========== 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
