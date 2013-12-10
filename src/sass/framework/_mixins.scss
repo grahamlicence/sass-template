@@ -72,3 +72,18 @@ $baseline-px: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+// different font mixin for better rendering on Chrome Windows
+// see http://www.dev-metal.com/fix-ugly-font-rendering-google-chrome/ for pics
+@mixin fontface($name, $path, $filename, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $name;
+    src: url($path + $filename + ".eot");
+    src: url($path + $filename + ".eot?#iefix") format("embedded-opentype"),
+         url($path + $filename + ".svg#" + $filename) format("svg"), // svg#name must match filename
+         url($path + $filename + ".woff") format("woff"),
+         url($path + $filename + ".ttf") format("truetype");
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
