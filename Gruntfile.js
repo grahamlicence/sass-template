@@ -1,5 +1,10 @@
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -9,7 +14,7 @@ module.exports = function(grunt) {
             style: 'expanded'
           },
           files: {
-            'build/assets/styles/main.css' : 'src/sass/main.scss'
+            'assets/styles/main.css' : '_sass/main.scss'
           }
         },
         dist: {
@@ -17,7 +22,7 @@ module.exports = function(grunt) {
             style: 'compressed'
           },
           files: {
-            'build/assets/styles/main.css' : 'src/sass/main.scss'
+            'assets/styles/main.css' : '_sass/main.scss'
           }
         }
       },
@@ -27,10 +32,10 @@ module.exports = function(grunt) {
               require: [
                   'breakpoint'
               ],
-              cssDir: 'build/assets/styles',
-              sassDir: 'src/sass',
-              imagesDir: 'build/assets/images',
-              javascriptsDir: 'build/assets/scripts',
+              cssDir: 'assets/styles',
+              sassDir: '_sass',
+              imagesDir: 'assets/images',
+              javascriptsDir: 'assets/scripts',
               outputStyle: 'expanded',
               relativeAssets: true,
               environment: 'development'
@@ -43,9 +48,9 @@ module.exports = function(grunt) {
         },
         minify: {
           expand: true,
-          cwd: 'build/assets/styles/',
+          cwd: 'assets/styles/',
           src: ['*.css', '!*.min.css'],
-          dest: 'build/assets/styles',
+          dest: 'assets/styles',
           ext: '.min.css'
         }
       },
@@ -56,10 +61,7 @@ module.exports = function(grunt) {
         }
       }
   });
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default',['compass:dev', 'cssmin', 'watch']);
 
+  grunt.registerTask('min',['compass:dev', 'cssmin']);
+  grunt.registerTask('grunt',['watch']);
 };
