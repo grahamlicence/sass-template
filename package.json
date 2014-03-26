@@ -1,12 +1,17 @@
 {
   "name": "sass-template",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.4",
     "grunt-contrib-sass": "~0.5.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-cssmin": "~0.6.2"
-  }
+  },
+  "description": "Sass project starting point",
+  "repository" :
+    { 
+      "type" : "git",
+      "url" : "https://github.com/grahamlicence/sass-template.git"
+    }
 }
