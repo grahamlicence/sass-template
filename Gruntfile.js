@@ -4,11 +4,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-ie-friendly');
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-     sass: {
+      pkg: grunt.file.readJSON('package.json'),
+      sass: {
         dev: {
           options: {
             style: 'expanded'
@@ -42,6 +43,16 @@ module.exports = function(grunt) {
             }
           }
       },
+      ie_friendly: {
+        default_options: {
+          options: {
+            // No current options.
+          },
+          files: {
+            'assets/styles/main-ie.css': 'assets/styles/main.css',
+          }
+        }
+      },
       cssmin: {
         options: {
           banner: '/* Sass template <%= pkg.version %> */'
@@ -57,11 +68,12 @@ module.exports = function(grunt) {
       watch: {
         css: {
           files: ['**/*.scss'],
-          tasks: ['compass:dev', 'cssmin']
+          tasks: ['compass:dev']
         }
       }
   });
 
   grunt.registerTask('min',['compass:dev', 'cssmin']);
+  grunt.registerTask('ie',['compass:dev', 'ie_friendly', 'cssmin']);
   grunt.registerTask('grunt',['watch']);
 };
