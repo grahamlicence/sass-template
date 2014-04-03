@@ -74,6 +74,6 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('min',['compass:dev', 'cssmin']);
-  grunt.registerTask('ie',['compass:dev', 'ie_friendly', 'cssmin']);
+  grunt.registerTask('ie',['compass:dev', 'ie_friendly']);
   grunt.registerTask('grunt',['watch']);
 };
